@@ -3,6 +3,7 @@ import skimage
 import matplotlib.pyplot as plt
 from skimage.draw import circle
 import os
+import imageio
 
 def create_annuli_mask(r, imsize):
     rr, cc = circle(imsize[0]//2, imsize[1]//2, r)
@@ -97,7 +98,8 @@ def from_wrapper(args, train=True):
                            r2=r2, theta2=theta2, lambda2=lmda, shift2=shift2)
 
         if (args.save_images):
-            scipy.misc.imsave(os.path.join(args.dataset_path, im_sub_path, im_fn), img)
+            imageio.imwrite(os.path.join(args.dataset_path, im_sub_path, im_fn), img)
+            # scipy.misc.imsave(os.path.join(args.dataset_path, im_sub_path, im_fn), img)
         if (args.save_metadata):
             metadata = accumulate_meta(metadata,
                                        im_sub_path, im_fn, iimg,
