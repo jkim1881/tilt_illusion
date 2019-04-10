@@ -109,7 +109,7 @@ def from_wrapper(args, train=True):
         print('PER IMAGE : ', str(elapsed))
         iimg += 1
     if (args.save_metadata):
-        print(metadata)
+        #print(metadata)
         matadata_nparray = np.array(metadata)
         save_metadata(matadata_nparray, args.dataset_path, args.batch_id)
 
